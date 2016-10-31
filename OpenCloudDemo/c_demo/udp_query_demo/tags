@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AES_CBCDecrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCDecrypt( const char * sSource, const uint32_t iSize,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+AES_CBCDecrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCDecrypt( const std::string & objSource,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+AES_CBCEncrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCEncrypt( const char * sSource, const uint32_t iSize,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+AES_CBCEncrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCEncrypt( const std::string & objSource,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+DELETE_PTR	WXBizMsgCrypt.cpp	23;"	d	file:
+DecodeBase64	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::DecodeBase64(const std::string sSrc, std::string & sTarget)$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+DecryptMsg	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::DecryptMsg(const std::string &sEncryptMsg,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+EncodeBase64	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::EncodeBase64(const std::string sSrc, std::string & sTarget)$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+EncryptAndDecrypt	WXBizMsgCrypt.cpp	/^namespace EncryptAndDecrypt{$/;"	n	file:
+EncryptMsg	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::EncryptMsg(const std::string &sNeedEncrypt,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+FREE_PTR	WXBizMsgCrypt.cpp	17;"	d	file:
+GetIpByHost	udp_query_tool.cpp	/^struct in_addr* GetIpByHost(const char* pszHost, char *pszIp, int iMaxLen)$/;"	f
+UDP_PORT	udp_query_tool.cpp	77;"	d	file:
+getSignFromTimeStampKey	udp_query_tool.cpp	/^string getSignFromTimeStampKey(unsigned int uiTimeStamp, string strKey)$/;"	f
+isValidIPAddr	udp_query_tool.cpp	/^static int isValidIPAddr(char *sIP)$/;"	f	file:
+main	udp_query_tool.cpp	/^int main(int argc, char *argv[])$/;"	f

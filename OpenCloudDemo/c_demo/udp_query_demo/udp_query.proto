@@ -1,0 +1,45 @@
+package url_open_query;
+
+message UdpQueryReq
+{
+    message Header
+    {
+        required uint32 appid = 1;
+        required uint64 time = 2;
+        required bytes v = 3;
+        required bytes echostr = 4;
+        required bytes sign = 5;
+        optional uint32 ip = 6;
+        optional bytes ipv6 = 7;
+    }
+
+    message ReqInfo
+    {
+        required uint32 id = 1;
+        required bytes url = 2;
+        required bytes deviceid = 3;
+    }
+
+    required Header header = 1;
+    required bytes reqinfo = 2;
+}
+
+message UdpQueryRsp
+{
+    message RspInfo
+    {
+        required uint32 id = 1;
+        required bytes url = 2;
+	required uint32 urltype = 3;
+	required uint32 eviltype = 4;
+	optional uint32 evilclass = 5;
+	optional uint32 urlclass=6;
+	optional uint32 urlsubclass =7;        
+    }
+
+    required uint32 status = 1;
+    required bytes msg = 2;
+    required bytes echostr = 3;
+    required RspInfo infos = 4;
+}
+

@@ -1,0 +1,61 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AESPATH	Makefile	/^AESPATH := ..\/..\/lib$/;"	m
+AES_CBCDecrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCDecrypt( const char * sSource, const uint32_t iSize,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+AES_CBCDecrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCDecrypt( const std::string & objSource,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+AES_CBCEncrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCEncrypt( const char * sSource, const uint32_t iSize,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+AES_CBCEncrypt	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::AES_CBCEncrypt( const std::string & objSource,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+CC	Makefile	/^CC = g++$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -g -static --no-strict-aliasing  -fPIC$/;"	m
+DELETE_PTR	WXBizMsgCrypt.cpp	23;"	d	file:
+DecodeBase64	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::DecodeBase64(const std::string sSrc, std::string & sTarget)$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+DecryptMsg	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::DecryptMsg(const std::string &sEncryptMsg,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+EXECUTABLE	Makefile	/^EXECUTABLE := http_query_tool$/;"	m
+EncodeBase64	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::EncodeBase64(const std::string sSrc, std::string & sTarget)$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+EncryptAndDecrypt	WXBizMsgCrypt.cpp	/^namespace EncryptAndDecrypt{$/;"	n	file:
+EncryptAndDecrypt	WXBizMsgCrypt.h	/^namespace EncryptAndDecrypt {$/;"	n
+EncryptMsg	WXBizMsgCrypt.cpp	/^int WXBizMsgCrypt::EncryptMsg(const std::string &sNeedEncrypt,$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+FREE_PTR	WXBizMsgCrypt.cpp	17;"	d	file:
+GetHTTPResponse	http_proto.cpp	/^static int GetHTTPResponse(int fd, std::string& strRespHeader, std::string& strRespBody)$/;"	f	file:
+GetIpByHost	main.cpp	/^struct in_addr* GetIpByHost(const char* pszHost, char *pszIp, int iMaxLen)$/;"	f
+HTTP_POST_H_	http_proto.h	10;"	d
+HttpPostRequest	http_proto.cpp	/^int HttpPostRequest (const char* pszHost, unsigned short port,$/;"	f
+INCS	Makefile	/^INCS := . \/usr\/include ${JSONPATH} ${AESPATH}\/include64$/;"	m
+JSONPATH	Makefile	/^JSONPATH := ..\/..\/lib\/json$/;"	m
+LIBPATHS	Makefile	/^LIBPATHS :=  ${JSONPATH}\/lib ${AESPATH}\/lib64$/;"	m
+LIBS	Makefile	/^LIBS :=	json64 crypto tinyxml2$/;"	m
+MAX_KEY_LEN	main.cpp	21;"	d	file:
+OBJS	Makefile	/^OBJS := $(patsubst %.cpp,%.o,$(SOURCE))$/;"	m
+SEND_HTTP_REQUEST	http_proto.cpp	14;"	d	file:
+SOURCE	Makefile	/^SOURCE := $(wildcard *.cpp)$/;"	m
+SendPostRequest	http_proto.cpp	/^static int SendPostRequest(int fd, const char* pszHost, const char* pszFilePath, const char* pszParam)$/;"	f	file:
+USER_MARCOS	Makefile	/^USER_MARCOS := _POSIX_THREADS _LINUX_OS_ _FILE_OFFSET_BITS=64$/;"	m
+WXBizMsgCrypt	WXBizMsgCrypt.h	/^    WXBizMsgCrypt(const std::string &sEncodingAESKey)$/;"	f	class:EncryptAndDecrypt::WXBizMsgCrypt
+WXBizMsgCrypt	WXBizMsgCrypt.h	/^class WXBizMsgCrypt$/;"	c	namespace:EncryptAndDecrypt
+WXBizMsgCryptErrorCode	WXBizMsgCrypt.h	/^enum  WXBizMsgCryptErrorCode$/;"	g	namespace:EncryptAndDecrypt
+WXBizMsgCrypt_ComputeSignature_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_ComputeSignature_Error = -40003,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_DecodeBase64_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_DecodeBase64_Error = -40010,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_DecryptAES_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_DecryptAES_Error = -40007,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_EncodeBase64_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_EncodeBase64_Error = -40009,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_EncryptAES_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_EncryptAES_Error = -40006,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_GenReturnXml_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_GenReturnXml_Error = -40011,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_IllegalAesKey	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_IllegalAesKey = -40004,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_IllegalBuffer	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_IllegalBuffer = -40008,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_OK	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_OK = 0,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_ParseXml_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_ParseXml_Error = -40002,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_ValidateAppid_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_ValidateAppid_Error = -40005,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+WXBizMsgCrypt_ValidateSignature_Error	WXBizMsgCrypt.h	/^    WXBizMsgCrypt_ValidateSignature_Error = -40001,$/;"	e	enum:EncryptAndDecrypt::WXBizMsgCryptErrorCode
+getSignFromTimeStampKey	main.cpp	/^static std::string getSignFromTimeStampKey(unsigned int uiTimeStamp, std::string strKey)$/;"	f	file:
+isValidIPAddr	main.cpp	/^static int isValidIPAddr(char *sIP)$/;"	f	file:
+kAesIVSize	WXBizMsgCrypt.h	/^static const unsigned int kAesIVSize = 16;$/;"	m	namespace:EncryptAndDecrypt
+kAesKeySize	WXBizMsgCrypt.h	/^static const unsigned int kAesKeySize = 32;$/;"	m	namespace:EncryptAndDecrypt
+kEncodingKeySize	WXBizMsgCrypt.h	/^static const unsigned int kEncodingKeySize = 16;\/\/43;$/;"	m	namespace:EncryptAndDecrypt
+kMaxBase64Size	WXBizMsgCrypt.h	/^static const unsigned int kMaxBase64Size = 1000000000;$/;"	m	namespace:EncryptAndDecrypt
+kMsgLen	WXBizMsgCrypt.h	/^static const unsigned int kMsgLen = 4;$/;"	m	namespace:EncryptAndDecrypt
+kRandEncryptStrLen	WXBizMsgCrypt.h	/^static const unsigned int kRandEncryptStrLen = 16;$/;"	m	namespace:EncryptAndDecrypt
+m_sEncodingAESKey	WXBizMsgCrypt.h	/^    std::string m_sEncodingAESKey;$/;"	m	class:EncryptAndDecrypt::WXBizMsgCrypt
+main	main.cpp	/^int main(int argc, char *argv[])$/;"	f

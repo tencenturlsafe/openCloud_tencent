@@ -1,0 +1,20 @@
+message ReqPkg
+{ 
+   message Header
+    {
+    	required uint32 appid = 1;
+		required uint64 time = 2;
+		required bytes  v = 3; 
+		required bytes  echostr = 4; 
+		required bytes  sign = 5; 
+		optional uint32 ip = 6;
+	}
+  	message ReqInfo
+    {
+		required uint32 id = 1;
+		required bytes  url  = 2;   
+		required bytes  deviceid = 3;   
+	}
+	required Header header = 1;
+	required bytes  reqinfo = 2; //AES¼ÓÃÜºóµÄReqInfo
+}  

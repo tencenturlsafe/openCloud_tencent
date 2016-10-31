@@ -1,0 +1,14 @@
+message RspPkg
+{
+  	message RspInfo
+{
+required uint32 id = 1;
+   		required bytes  url  = 2; 
+required uint32 urltype = 3;  
+    		required uint32 eviltype = 4;
+}
+required uint32  status = 1;
+required bytes  msg = 2;
+required bytes  echostr = 3;
+required RspInfo infos = 4; 
+}  
