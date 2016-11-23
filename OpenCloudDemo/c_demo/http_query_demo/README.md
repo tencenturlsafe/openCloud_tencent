@@ -10,6 +10,4 @@ Http Demo 说明
 > openssl的版本号是openssl-1.0.1h，http://www.openssl.org/
 > tinyxml2的版本号是tinyxml2-2.1.0，https://github.com/leethomason/tinyxml2
 
-### Appid和password说明
-Appid 和password由腾讯分配，在业务接入时向腾讯申请
 
