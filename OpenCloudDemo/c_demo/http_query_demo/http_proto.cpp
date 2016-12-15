@@ -1,11 +1,4 @@
-/*
- * http_post.cpp
- *
- *  Created on: 2012-5-1
- *      Author: tosneytao
- *  Modify on: 2015-11-12 by julieyjzhu, update recv http method
- *
- */
+
 
 #include <stdio.h>
 #include <string.h>
