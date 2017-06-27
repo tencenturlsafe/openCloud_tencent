@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
 	{
 
 		printf("request len: %d\n", reqstr.length());
-		int ii = HttpPostRequest ( argv[2], atoi(argv[5]), "index.php", reqstr.c_str(), strRespHeader, strRespBody);
+		int ii = HttpPostRequest ( argv[2], atoi(argv[5]), "/", reqstr.c_str(), strRespHeader, strRespBody);
 		if(ii !=0)
 		{
 			std::cout<<"tcp failed! continue..."<<std::endl;
