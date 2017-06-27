@@ -27,7 +27,7 @@ static int SendPostRequest(int fd, const char* pszHost, const char* pszFilePath,
 	char szContentHeader[100];
 	sprintf(szContentHeader,"Content-Length: %d\r\n",strlen(pszParam));
 	SEND_HTTP_REQUEST(szContentHeader);
-	SEND_HTTP_REQUEST("Accept-Encoding: gzip, deflate\r\n");
+	//SEND_HTTP_REQUEST("Accept-Encoding: gzip, deflate\r\n");
 	SEND_HTTP_REQUEST("Host: ");
 	SEND_HTTP_REQUEST(pszHost);
 	SEND_HTTP_REQUEST("\r\n");
