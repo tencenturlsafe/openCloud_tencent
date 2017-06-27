@@ -20,9 +20,9 @@ static int SendPostRequest(int fd, const char* pszHost, const char* pszFilePath,
 	*/
 	SEND_HTTP_REQUEST("POST ");
 	SEND_HTTP_REQUEST(pszFilePath);
-	SEND_HTTP_REQUEST(" HTTP/1.0\r\n");
+	SEND_HTTP_REQUEST(" HTTP/1.1\r\n");
 	SEND_HTTP_REQUEST("Accept: */*\r\n");
-	//SEND_HTTP_REQUEST("User-Agent: Mozilla/4.0\r\n");
+	SEND_HTTP_REQUEST("User-Agent: Mozilla/4.0\r\n");
 
 	char szContentHeader[100];
 	sprintf(szContentHeader,"Content-Length: %d\r\n",strlen(pszParam));
