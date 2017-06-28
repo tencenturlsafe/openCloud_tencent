@@ -59,13 +59,14 @@ void protobuf_AssignDesc_udp_5fquery_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UdpQueryReq));
   UdpQueryReq_Header_descriptor_ = UdpQueryReq_descriptor_->nested_type(0);
-  static const int UdpQueryReq_Header_offsets_[6] = {
+  static const int UdpQueryReq_Header_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, appid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, v_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, echostr_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, sign_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, ip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryReq_Header, ipv6_),
   };
   UdpQueryReq_Header_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -114,12 +115,14 @@ void protobuf_AssignDesc_udp_5fquery_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UdpQueryRsp));
   UdpQueryRsp_RspInfo_descriptor_ = UdpQueryRsp_descriptor_->nested_type(0);
-  static const int UdpQueryRsp_RspInfo_offsets_[5] = {
+  static const int UdpQueryRsp_RspInfo_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, url_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, urltype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, eviltype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, evilclass_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, urlclass_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UdpQueryRsp_RspInfo, urlsubclass_),
   };
   UdpQueryRsp_RspInfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -178,18 +181,20 @@ void protobuf_AddDesc_udp_5fquery_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017udp_query.proto\022\016url_open_query\"\345\001\n\013Ud"
+    "\n\017udp_query.proto\022\016url_open_query\"\363\001\n\013Ud"
     "pQueryReq\0222\n\006header\030\001 \002(\0132\".url_open_que"
-    "ry.UdpQueryReq.Header\022\017\n\007reqinfo\030\002 \002(\014\032["
+    "ry.UdpQueryReq.Header\022\017\n\007reqinfo\030\002 \002(\014\032i"
     "\n\006Header\022\r\n\005appid\030\001 \002(\r\022\014\n\004time\030\002 \002(\004\022\t\n"
     "\001v\030\003 \002(\014\022\017\n\007echostr\030\004 \002(\014\022\014\n\004sign\030\005 \002(\014\022"
-    "\n\n\002ip\030\006 \001(\r\0324\n\007ReqInfo\022\n\n\002id\030\001 \002(\r\022\013\n\003ur"
-    "l\030\002 \002(\014\022\020\n\010deviceid\030\003 \002(\014\"\311\001\n\013UdpQueryRs"
-    "p\022\016\n\006status\030\001 \002(\r\022\013\n\003msg\030\002 \002(\014\022\017\n\007echost"
-    "r\030\003 \002(\014\0222\n\005infos\030\004 \002(\0132#.url_open_query."
-    "UdpQueryRsp.RspInfo\032X\n\007RspInfo\022\n\n\002id\030\001 \002"
-    "(\r\022\013\n\003url\030\002 \002(\014\022\017\n\007urltype\030\003 \002(\r\022\020\n\010evil"
-    "type\030\004 \002(\r\022\021\n\tevilclass\030\005 \001(\r", 469);
+    "\n\n\002ip\030\006 \001(\r\022\014\n\004ipv6\030\007 \001(\014\0324\n\007ReqInfo\022\n\n\002"
+    "id\030\001 \002(\r\022\013\n\003url\030\002 \002(\014\022\020\n\010deviceid\030\003 \002(\014\""
+    "\360\001\n\013UdpQueryRsp\022\016\n\006status\030\001 \002(\r\022\013\n\003msg\030\002"
+    " \002(\014\022\017\n\007echostr\030\003 \002(\014\0222\n\005infos\030\004 \002(\0132#.u"
+    "rl_open_query.UdpQueryRsp.RspInfo\032\177\n\007Rsp"
+    "Info\022\n\n\002id\030\001 \002(\r\022\013\n\003url\030\002 \002(\014\022\017\n\007urltype"
+    "\030\003 \002(\r\022\020\n\010eviltype\030\004 \002(\r\022\021\n\tevilclass\030\005 "
+    "\001(\r\022\020\n\010urlclass\030\006 \001(\r\022\023\n\013urlsubclass\030\007 \001"
+    "(\r", 522);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "udp_query.proto", &protobuf_RegisterTypes);
   UdpQueryReq::default_instance_ = new UdpQueryReq();
@@ -222,6 +227,7 @@ const int UdpQueryReq_Header::kVFieldNumber;
 const int UdpQueryReq_Header::kEchostrFieldNumber;
 const int UdpQueryReq_Header::kSignFieldNumber;
 const int UdpQueryReq_Header::kIpFieldNumber;
+const int UdpQueryReq_Header::kIpv6FieldNumber;
 #endif  // !_MSC_VER
 
 UdpQueryReq_Header::UdpQueryReq_Header()
@@ -246,6 +252,7 @@ void UdpQueryReq_Header::SharedCtor() {
   echostr_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   sign_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ip_ = 0u;
+  ipv6_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -262,6 +269,9 @@ void UdpQueryReq_Header::SharedDtor() {
   }
   if (sign_ != &::google::protobuf::internal::kEmptyString) {
     delete sign_;
+  }
+  if (ipv6_ != &::google::protobuf::internal::kEmptyString) {
+    delete ipv6_;
   }
   if (this != default_instance_) {
   }
@@ -307,6 +317,11 @@ void UdpQueryReq_Header::Clear() {
       }
     }
     ip_ = 0u;
+    if (has_ipv6()) {
+      if (ipv6_ != &::google::protobuf::internal::kEmptyString) {
+        ipv6_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -403,6 +418,20 @@ bool UdpQueryReq_Header::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(58)) goto parse_ipv6;
+        break;
+      }
+      
+      // optional bytes ipv6 = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_ipv6:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_ipv6()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -458,6 +487,12 @@ void UdpQueryReq_Header::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->ip(), output);
   }
   
+  // optional bytes ipv6 = 7;
+  if (has_ipv6()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      7, this->ipv6(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -500,6 +535,13 @@ void UdpQueryReq_Header::SerializeWithCachedSizes(
   // optional uint32 ip = 6;
   if (has_ip()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->ip(), target);
+  }
+  
+  // optional bytes ipv6 = 7;
+  if (has_ipv6()) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        7, this->ipv6(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -555,6 +597,13 @@ int UdpQueryReq_Header::ByteSize() const {
           this->ip());
     }
     
+    // optional bytes ipv6 = 7;
+    if (has_ipv6()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->ipv6());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -600,6 +649,9 @@ void UdpQueryReq_Header::MergeFrom(const UdpQueryReq_Header& from) {
     if (from.has_ip()) {
       set_ip(from.ip());
     }
+    if (from.has_ipv6()) {
+      set_ipv6(from.ipv6());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -630,6 +682,7 @@ void UdpQueryReq_Header::Swap(UdpQueryReq_Header* other) {
     std::swap(echostr_, other->echostr_);
     std::swap(sign_, other->sign_);
     std::swap(ip_, other->ip_);
+    std::swap(ipv6_, other->ipv6_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1221,6 +1274,8 @@ const int UdpQueryRsp_RspInfo::kUrlFieldNumber;
 const int UdpQueryRsp_RspInfo::kUrltypeFieldNumber;
 const int UdpQueryRsp_RspInfo::kEviltypeFieldNumber;
 const int UdpQueryRsp_RspInfo::kEvilclassFieldNumber;
+const int UdpQueryRsp_RspInfo::kUrlclassFieldNumber;
+const int UdpQueryRsp_RspInfo::kUrlsubclassFieldNumber;
 #endif  // !_MSC_VER
 
 UdpQueryRsp_RspInfo::UdpQueryRsp_RspInfo()
@@ -1244,6 +1299,8 @@ void UdpQueryRsp_RspInfo::SharedCtor() {
   urltype_ = 0u;
   eviltype_ = 0u;
   evilclass_ = 0u;
+  urlclass_ = 0u;
+  urlsubclass_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1290,6 +1347,8 @@ void UdpQueryRsp_RspInfo::Clear() {
     urltype_ = 0u;
     eviltype_ = 0u;
     evilclass_ = 0u;
+    urlclass_ = 0u;
+    urlsubclass_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1374,6 +1433,38 @@ bool UdpQueryRsp_RspInfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(48)) goto parse_urlclass;
+        break;
+      }
+      
+      // optional uint32 urlclass = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_urlclass:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &urlclass_)));
+          set_has_urlclass();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_urlsubclass;
+        break;
+      }
+      
+      // optional uint32 urlsubclass = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_urlsubclass:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &urlsubclass_)));
+          set_has_urlsubclass();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1422,6 +1513,16 @@ void UdpQueryRsp_RspInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->evilclass(), output);
   }
   
+  // optional uint32 urlclass = 6;
+  if (has_urlclass()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->urlclass(), output);
+  }
+  
+  // optional uint32 urlsubclass = 7;
+  if (has_urlsubclass()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->urlsubclass(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1455,6 +1556,16 @@ void UdpQueryRsp_RspInfo::SerializeWithCachedSizes(
   // optional uint32 evilclass = 5;
   if (has_evilclass()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->evilclass(), target);
+  }
+  
+  // optional uint32 urlclass = 6;
+  if (has_urlclass()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->urlclass(), target);
+  }
+  
+  // optional uint32 urlsubclass = 7;
+  if (has_urlsubclass()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->urlsubclass(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -1503,6 +1614,20 @@ int UdpQueryRsp_RspInfo::ByteSize() const {
           this->evilclass());
     }
     
+    // optional uint32 urlclass = 6;
+    if (has_urlclass()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->urlclass());
+    }
+    
+    // optional uint32 urlsubclass = 7;
+    if (has_urlsubclass()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->urlsubclass());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -1545,6 +1670,12 @@ void UdpQueryRsp_RspInfo::MergeFrom(const UdpQueryRsp_RspInfo& from) {
     if (from.has_evilclass()) {
       set_evilclass(from.evilclass());
     }
+    if (from.has_urlclass()) {
+      set_urlclass(from.urlclass());
+    }
+    if (from.has_urlsubclass()) {
+      set_urlsubclass(from.urlsubclass());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1574,6 +1705,8 @@ void UdpQueryRsp_RspInfo::Swap(UdpQueryRsp_RspInfo* other) {
     std::swap(urltype_, other->urltype_);
     std::swap(eviltype_, other->eviltype_);
     std::swap(evilclass_, other->evilclass_);
+    std::swap(urlclass_, other->urlclass_);
+    std::swap(urlsubclass_, other->urlsubclass_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
