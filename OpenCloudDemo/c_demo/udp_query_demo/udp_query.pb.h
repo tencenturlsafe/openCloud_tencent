@@ -148,6 +148,17 @@ class UdpQueryReq_Header : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 ip() const;
   inline void set_ip(::google::protobuf::uint32 value);
   
+  // optional bytes ipv6 = 7;
+  inline bool has_ipv6() const;
+  inline void clear_ipv6();
+  static const int kIpv6FieldNumber = 7;
+  inline const ::std::string& ipv6() const;
+  inline void set_ipv6(const ::std::string& value);
+  inline void set_ipv6(const char* value);
+  inline void set_ipv6(const void* value, size_t size);
+  inline ::std::string* mutable_ipv6();
+  inline ::std::string* release_ipv6();
+  
   // @@protoc_insertion_point(class_scope:url_open_query.UdpQueryReq.Header)
  private:
   inline void set_has_appid();
@@ -162,6 +173,8 @@ class UdpQueryReq_Header : public ::google::protobuf::Message {
   inline void clear_has_sign();
   inline void set_has_ip();
   inline void clear_has_ip();
+  inline void set_has_ipv6();
+  inline void clear_has_ipv6();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -171,9 +184,10 @@ class UdpQueryReq_Header : public ::google::protobuf::Message {
   ::google::protobuf::uint32 ip_;
   ::std::string* echostr_;
   ::std::string* sign_;
+  ::std::string* ipv6_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
   
   friend void  protobuf_AddDesc_udp_5fquery_2eproto();
   friend void protobuf_AssignDesc_udp_5fquery_2eproto();
@@ -487,6 +501,20 @@ class UdpQueryRsp_RspInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 evilclass() const;
   inline void set_evilclass(::google::protobuf::uint32 value);
   
+  // optional uint32 urlclass = 6;
+  inline bool has_urlclass() const;
+  inline void clear_urlclass();
+  static const int kUrlclassFieldNumber = 6;
+  inline ::google::protobuf::uint32 urlclass() const;
+  inline void set_urlclass(::google::protobuf::uint32 value);
+  
+  // optional uint32 urlsubclass = 7;
+  inline bool has_urlsubclass() const;
+  inline void clear_urlsubclass();
+  static const int kUrlsubclassFieldNumber = 7;
+  inline ::google::protobuf::uint32 urlsubclass() const;
+  inline void set_urlsubclass(::google::protobuf::uint32 value);
+  
   // @@protoc_insertion_point(class_scope:url_open_query.UdpQueryRsp.RspInfo)
  private:
   inline void set_has_id();
@@ -499,6 +527,10 @@ class UdpQueryRsp_RspInfo : public ::google::protobuf::Message {
   inline void clear_has_eviltype();
   inline void set_has_evilclass();
   inline void clear_has_evilclass();
+  inline void set_has_urlclass();
+  inline void clear_has_urlclass();
+  inline void set_has_urlsubclass();
+  inline void clear_has_urlsubclass();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -507,9 +539,11 @@ class UdpQueryRsp_RspInfo : public ::google::protobuf::Message {
   ::google::protobuf::uint32 urltype_;
   ::google::protobuf::uint32 eviltype_;
   ::google::protobuf::uint32 evilclass_;
+  ::google::protobuf::uint32 urlclass_;
+  ::google::protobuf::uint32 urlsubclass_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
   
   friend void  protobuf_AddDesc_udp_5fquery_2eproto();
   friend void protobuf_AssignDesc_udp_5fquery_2eproto();
@@ -886,6 +920,64 @@ inline ::google::protobuf::uint32 UdpQueryReq_Header::ip() const {
 inline void UdpQueryReq_Header::set_ip(::google::protobuf::uint32 value) {
   set_has_ip();
   ip_ = value;
+}
+
+// optional bytes ipv6 = 7;
+inline bool UdpQueryReq_Header::has_ipv6() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void UdpQueryReq_Header::set_has_ipv6() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void UdpQueryReq_Header::clear_has_ipv6() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void UdpQueryReq_Header::clear_ipv6() {
+  if (ipv6_ != &::google::protobuf::internal::kEmptyString) {
+    ipv6_->clear();
+  }
+  clear_has_ipv6();
+}
+inline const ::std::string& UdpQueryReq_Header::ipv6() const {
+  return *ipv6_;
+}
+inline void UdpQueryReq_Header::set_ipv6(const ::std::string& value) {
+  set_has_ipv6();
+  if (ipv6_ == &::google::protobuf::internal::kEmptyString) {
+    ipv6_ = new ::std::string;
+  }
+  ipv6_->assign(value);
+}
+inline void UdpQueryReq_Header::set_ipv6(const char* value) {
+  set_has_ipv6();
+  if (ipv6_ == &::google::protobuf::internal::kEmptyString) {
+    ipv6_ = new ::std::string;
+  }
+  ipv6_->assign(value);
+}
+inline void UdpQueryReq_Header::set_ipv6(const void* value, size_t size) {
+  set_has_ipv6();
+  if (ipv6_ == &::google::protobuf::internal::kEmptyString) {
+    ipv6_ = new ::std::string;
+  }
+  ipv6_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* UdpQueryReq_Header::mutable_ipv6() {
+  set_has_ipv6();
+  if (ipv6_ == &::google::protobuf::internal::kEmptyString) {
+    ipv6_ = new ::std::string;
+  }
+  return ipv6_;
+}
+inline ::std::string* UdpQueryReq_Header::release_ipv6() {
+  clear_has_ipv6();
+  if (ipv6_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = ipv6_;
+    ipv6_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
 }
 
 // -------------------------------------------------------------------
@@ -1269,6 +1361,50 @@ inline ::google::protobuf::uint32 UdpQueryRsp_RspInfo::evilclass() const {
 inline void UdpQueryRsp_RspInfo::set_evilclass(::google::protobuf::uint32 value) {
   set_has_evilclass();
   evilclass_ = value;
+}
+
+// optional uint32 urlclass = 6;
+inline bool UdpQueryRsp_RspInfo::has_urlclass() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void UdpQueryRsp_RspInfo::set_has_urlclass() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void UdpQueryRsp_RspInfo::clear_has_urlclass() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void UdpQueryRsp_RspInfo::clear_urlclass() {
+  urlclass_ = 0u;
+  clear_has_urlclass();
+}
+inline ::google::protobuf::uint32 UdpQueryRsp_RspInfo::urlclass() const {
+  return urlclass_;
+}
+inline void UdpQueryRsp_RspInfo::set_urlclass(::google::protobuf::uint32 value) {
+  set_has_urlclass();
+  urlclass_ = value;
+}
+
+// optional uint32 urlsubclass = 7;
+inline bool UdpQueryRsp_RspInfo::has_urlsubclass() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void UdpQueryRsp_RspInfo::set_has_urlsubclass() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void UdpQueryRsp_RspInfo::clear_has_urlsubclass() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void UdpQueryRsp_RspInfo::clear_urlsubclass() {
+  urlsubclass_ = 0u;
+  clear_has_urlsubclass();
+}
+inline ::google::protobuf::uint32 UdpQueryRsp_RspInfo::urlsubclass() const {
+  return urlsubclass_;
+}
+inline void UdpQueryRsp_RspInfo::set_urlsubclass(::google::protobuf::uint32 value) {
+  set_has_urlsubclass();
+  urlsubclass_ = value;
 }
 
 // -------------------------------------------------------------------
