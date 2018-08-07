@@ -24,12 +24,12 @@ var httpClient = &http.Client{
 }
 // Header is part of Req
 type Header struct {
-		AppID int `json:"appid"`
-		Timestamp int `json:"timestamp"`
-		V string `json:"v"`
-		EchoString string `json:"echostr"`
-		Sign string `json:"sign"`
-		ClientIP int `json:"client_ip"`
+	AppID int `json:"appid"`
+	Timestamp int `json:"timestamp"`
+	V string `json:"v"`
+	EchoString string `json:"echostr"`
+	Sign string `json:"sign"`
+	ClientIP int `json:"client_ip"`
 }
 // Req is http body
 type Req struct {
@@ -44,6 +44,7 @@ type ReqInfo struct {
 	DeviceID string `json:"deviceid"`
 	UserAgent string `json:"user_agent"`
 	UserIdentify string `json:"user_identify"`
+	IDONTKNOW string `json:"temp"`
 }
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -68,7 +69,7 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 		V: "2.0",
 		EchoString: randString(16),
 		Sign: "",
-		// ClientIP: 127001,
+		ClientIP: 0,
 	}
 	req := &Req{
 		Header: header,
@@ -81,6 +82,7 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 		ID: 0,
 		URL: URL,
 		UserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36",
+		IDONTKNOW: "90739024570367236902340-680-5860279083475890236790574390-5679023490-769245789013745-80-=683450-679023875908347590370-4850-3",
 	}
 	reqInfos := make([]*ReqInfo, 1)
 	reqInfos[0] = reqInfo
@@ -138,7 +140,7 @@ func AESEncrypt(origData, key []byte) ([]byte, error) {
 	}
 	blockSize := block.BlockSize()
 	origData = PKCS7Padding(origData, blockSize)
-	blockMode := cipher.NewCBCEncrypter(block, key[:blockSize])
+	blockMode := cipher.NewCBCEncrypter(block, key[:16])
 	crypted := make([]byte, len(origData))
 	blockMode.CryptBlocks(crypted, origData)
 	return crypted, nil
@@ -149,8 +151,8 @@ func AESDecrypt(cryptedData, key []byte) ([]byte, error) {
 	if err != nil {
 		return nil, fmt.Errorf("new cipher error: %s", err.Error())
 	}
-	blockSize := block.BlockSize()
-	blockMode := cipher.NewCBCDecrypter(block, key[:blockSize])
+//	blockSize := block.BlockSize()
+	blockMode := cipher.NewCBCDecrypter(block, key[:16])
 	origData := make([]byte, len(cryptedData))
 	blockMode.CryptBlocks(origData, cryptedData)
 	return PKCS7UnPadding(origData), nil	
