@@ -82,7 +82,7 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 		ID: 0,
 		URL: URL,
 		UserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36",
-		IDONTKNOW: "90739024570367236902340-680-5860279083475890236790574390-5679023490-769245789013745-80-=683450-679023875908347590370-4850-3",
+		IDONTKNOW: "90739024570367236902340-680-5860279083475890236790574390-5679023490-769245789013745-80-=683450-loahgfoaehgpahfkghqdoprinpodljfgl;d987590kljdhglkeshjgkljdhklhllo;sajpoiuopdsifhgodfijgpoadsjgopdfhijopi",
 	}
 	reqInfos := make([]*ReqInfo, 1)
 	reqInfos[0] = reqInfo
@@ -107,9 +107,10 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("read http body error: %s", err.Error())
 	}
+	logger.Printf("response body : %s", string(body))
 	n, err := base64.StdEncoding.Decode(body, body)
 	if err != nil {
-		return "", fmt.Errorf("base decode response body error: %s", err.Error())
+		return "", fmt.Errorf("base64 decode response body error: %s", err.Error())
 	}
 	body, err = AESDecrypt(body[:n], []byte(appKey))
 	if err != nil {
