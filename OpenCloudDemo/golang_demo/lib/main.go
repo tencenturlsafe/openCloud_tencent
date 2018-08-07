@@ -44,7 +44,6 @@ type ReqInfo struct {
 	DeviceID string `json:"deviceid"`
 	UserAgent string `json:"user_agent"`
 	UserIdentify string `json:"user_identify"`
-	IDONTKNOW string `json:"temp"`
 }
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -69,7 +68,6 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 		V: "2.0",
 		EchoString: randString(16),
 		Sign: "",
-		ClientIP: 0,
 	}
 	req := &Req{
 		Header: header,
@@ -82,7 +80,6 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 		ID: 0,
 		URL: URL,
 		UserAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36",
-		IDONTKNOW: "90739024570367236902340-680-5860279083475890236790574390-5679023490-769245789013745-80-=683450-loahgfoaehgpahfkghqdoprinpodljfgl;d987590kljdhglkeshjgkljdhklhllo;sajpoiuopdsifhgodfijgpoadsjgopdfhijopi",
 	}
 	reqInfos := make([]*ReqInfo, 1)
 	reqInfos[0] = reqInfo
@@ -107,7 +104,6 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("read http body error: %s", err.Error())
 	}
-	logger.Printf("response body : %s", string(body))
 	n, err := base64.StdEncoding.Decode(body, body)
 	if err != nil {
 		return "", fmt.Errorf("base64 decode response body error: %s", err.Error())
@@ -121,39 +117,44 @@ func SafeQuery(URL string, appID int, appKey string) (string, error) {
 
 // PKCS7Padding is padding method
 func PKCS7Padding(ciphertext []byte, blockSize int) []byte {
-    paddingSize := blockSize - len(ciphertext) % blockSize
-    padtext := bytes.Repeat([]byte{byte(paddingSize)}, paddingSize)
-    return append(ciphertext, padtext...)
+	paddingSize := 32 - len(ciphertext) % 32
+	if paddingSize == 0 {
+		paddingSize = blockSize
+	}
+	padtext := bytes.Repeat([]byte{byte(paddingSize)}, paddingSize)
+	return append(ciphertext, padtext...)
 }
 
 // PKCS7UnPadding is unpadding method
 func PKCS7UnPadding(origData []byte) []byte {
-    length := len(origData)
-    unpadding := int(origData[length-1])
-    return origData[:(length - unpadding)]
+	length := len(origData)
+	unpadding := int(origData[length-1])
+	if unpadding < 1 || unpadding > 32 {
+		return origData[:length]
+	}
+	return origData[:(length - unpadding)]
 }
 
 // AESEncrypt is encrypt method of AES
 func AESEncrypt(origData, key []byte) ([]byte, error) {
-	block, err := aes.NewCipher(key)
+	block, err := aes.NewCipher(key[:32])
 	if err != nil {
 		return nil, fmt.Errorf("new cipher error: %s", err.Error())
 	}
 	blockSize := block.BlockSize()
 	origData = PKCS7Padding(origData, blockSize)
-	blockMode := cipher.NewCBCEncrypter(block, key[:16])
-	crypted := make([]byte, len(origData))
-	blockMode.CryptBlocks(crypted, origData)
-	return crypted, nil
+	blockMode := cipher.NewCBCEncrypter(block, key[:blockSize])
+	blockMode.CryptBlocks(origData, origData)
+	return origData, nil
 }
 // AESDecrypt is decrypt method of AES
 func AESDecrypt(cryptedData, key []byte) ([]byte, error) {
-	block, err := aes.NewCipher(key)
+	block, err := aes.NewCipher(key[:32])
 	if err != nil {
 		return nil, fmt.Errorf("new cipher error: %s", err.Error())
 	}
-//	blockSize := block.BlockSize()
-	blockMode := cipher.NewCBCDecrypter(block, key[:16])
+	blockSize := block.BlockSize()
+	blockMode := cipher.NewCBCDecrypter(block, key[:blockSize])
 	origData := make([]byte, len(cryptedData))
 	blockMode.CryptBlocks(origData, cryptedData)
 	return PKCS7UnPadding(origData), nil	
